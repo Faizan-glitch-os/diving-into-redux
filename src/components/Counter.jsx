@@ -16,6 +16,10 @@ const Counter = () => {
     if (action === "decrease") {
       counterDispatcher({ type: "DECREMENT" });
     }
+
+    if (action === "increaseBy10") {
+      counterDispatcher({ type: "increaseBy10", amount: 10 });
+    }
   }
 
   return (
@@ -25,6 +29,7 @@ const Counter = () => {
       <button onClick={toggleCounterHandler}>Toggle Counter</button>
       <div>
         <button onClick={() => handleCounterValue("increase")}>+</button>
+        <button onClick={() => handleCounterValue("increaseBy10")}>+10</button>
         <button onClick={() => handleCounterValue("decrease")}>-</button>
       </div>
     </main>

@@ -1,7 +1,7 @@
 import { createStore } from "redux";
 
 function counterReducer(state = 0, action) {
-  if (action.type === "ICREMENT") {
+  if (action.type === "INCREMENT") {
     return {
       counter: state.counter + 1,
     };

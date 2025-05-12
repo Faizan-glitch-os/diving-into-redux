@@ -1,29 +1,30 @@
 import classes from "./Counter.module.css";
 
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+
+import { counterActions } from "../store";
 
 const Counter = () => {
-  const toggleCounterHandler = () => {};
+  const counterDispatcher = useDispatch();
 
   const counter = useSelector((state) => state.counter);
   const toggle = useSelector((state) => state.showCounter);
-  const counterDispatcher = useDispatch();
 
-  function handleCounterValue(action) {
-    if (action === "increase") {
-      counterDispatcher({ type: "INCREMENT" });
+  function handleCounterValue(btnWork) {
+    if (btnWork === "increase") {
+      counterDispatcher(counterActions.increment());
     }
 
-    if (action === "decrease") {
-      counterDispatcher({ type: "DECREMENT" });
+    if (btnWork === "decrease") {
+      counterDispatcher(counterActions.decrement());
     }
 
-    if (action === "increaseBy10") {
-      counterDispatcher({ type: "increaseBy10", amount: 10 });
+    if (btnWork === "increaseBy10") {
+      counterDispatcher(counterActions.increaseAmount(10));
     }
 
-    if (action === "toggleVisibility") {
-      counterDispatcher({ type: "TOGGLE_COUNTER" });
+    if (btnWork === "toggleVisibility") {
+      counterDispatcher(counterActions.toggleCounter());
     }
   }
 

@@ -7,8 +7,8 @@ import { counterActions } from "../store";
 const Counter = () => {
   const counterDispatcher = useDispatch();
 
-  const counter = useSelector((state) => state.counter);
-  const toggle = useSelector((state) => state.showCounter);
+  const counter = useSelector((state) => state.counter.counter);
+  const toggle = useSelector((state) => state.counter.showCounter);
 
   function handleCounterValue(btnWork) {
     if (btnWork === "increase") {
